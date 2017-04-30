@@ -33,13 +33,13 @@ highestCloseTop10 = LIMIT highestClose 10;
 dump highestCloseTop10;
 
 --Split stocks into three groups, group1 if close < 30, group2 if close > 40, group3 otherwise.
-Split stocks INTO group1 IF close < 30, group2 IF close > 40, group3 otherwise;
-
+SPLIT stocks INTO group1 IF close < 30, group2 IF close > 40, group3 otherwise;
 
 
 -- Other useful operations
--- filter 2015 stocks
+-- filter 2015 stocks with Regular Expression
 stocks2015 = FILTER stocks BY $0 MATCHES '.*2015.*';
+--$0: 1st column
 
 --sampling data
 sampleStock = SAMPLE stocks 0.01;
